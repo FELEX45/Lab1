@@ -17,11 +17,12 @@ public class Main {
         System.out.println("2. Вывести все банковские операции за ноябрь 2021 года.");
         System.out.println("Выберите операцию для фильтрации");
 
-        if (scanner.nextInt() == 1) {
+        int read = scanner.nextInt();
+        if (read == 1) {
             Filter.sortADDOperation(operationList).forEach(System.out::println);
         }
-        else if (scanner.nextInt() == 2) {
-
+        else if (read == 2) {
+            Filter.sortNov2021(operationList).forEach(System.out::println);
         }
     }
 }
