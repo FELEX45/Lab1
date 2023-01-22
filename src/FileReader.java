@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FileReader {
     public static List<BankOperation> readFromFile(String name) throws IOException {
-        List<String> files =  Files.readAllLines(Paths.get(".").resolve(name));
+        List<String> files =  Files.readAllLines(Paths.get(name));
         List<BankOperation> operations = new ArrayList<>();
         for (String file : files) {
             String[] split = file.split(" ");
