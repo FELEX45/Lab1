@@ -1,5 +1,7 @@
+package by.might;
+
 import java.io.IOException;
-import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,5 +26,9 @@ public class Main {
         else if (read == 2) {
             Filter.sortNov2021(operationList).forEach(System.out::println);
         }
+
+        System.out.println("Сортируем");
+        Collections.sort(operationList, new Sort.BankOperationDescUpComparator());
+        operationList.forEach(System.out::println);
     }
 }

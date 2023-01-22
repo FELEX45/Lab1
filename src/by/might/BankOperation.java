@@ -1,3 +1,5 @@
+package by.might;
+
 public class BankOperation {
 
     public enum TypeOperation{
@@ -35,7 +37,7 @@ public class BankOperation {
 
     @Override
     public String toString() {
-        return "BankOperation{" +
+        return "by.might.BankOperation{" +
                 "date_day=" + date_day +
                 ", date_month=" + date_month +
                 ", date_year=" + date_year +
