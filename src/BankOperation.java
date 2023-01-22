@@ -1,6 +1,6 @@
 public class BankOperation {
 
-    private enum TypeOperation{
+    public enum TypeOperation{
         ADD,
         REMOVE
     }
