@@ -3,6 +3,7 @@ package by.might;
 import org.magiclen.magicsort.MagicSort;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
@@ -10,6 +11,6 @@ public class Main {
         System.out.println("Калинин");
         System.out.println("22ПОИТ1з");
 
-        new Process(Constants.fileName).run();
+        new Process(Paths.get(Constants.fileName)).run();
     }
 }
