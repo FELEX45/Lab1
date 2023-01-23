@@ -3,6 +3,7 @@ package by.might;
 import org.magiclen.magicsort.MagicSort;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.Scanner;
 
 public class Process implements Runnable {
     private final List<BankOperation> operations;
-    private final String fileName;
+    private final Path fileName;
 
-    public Process(String filename) {
+    public Process(Path filename) {
         operations = loadOperations();
         this.fileName = filename;
     }

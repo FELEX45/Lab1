@@ -2,13 +2,14 @@ package by.might;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileReader {
-    public static List<BankOperation> readFromFile(String name) throws IOException {
-        List<String> files =  Files.readAllLines(Paths.get(name));
+    public static List<BankOperation> readFromFile(Path name) throws IOException {
+        List<String> files =  Files.readAllLines(name);
         List<BankOperation> operations = new ArrayList<>();
         for (String file : files) {
             String[] split = file.split(" ");
