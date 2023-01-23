@@ -31,7 +31,7 @@ public class Sort {
             if (accountCompare == 0) {
                 int typeCompare = o1.type.compareTo(o2.type);
                 if (typeCompare == 0) {
-                    return Double.compare(o2.amount, o1.amount);
+                    return Double.compare(o2.getAmount(), o1.getAmount());
                 }
                 return typeCompare;
             }

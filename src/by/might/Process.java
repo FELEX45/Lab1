@@ -9,11 +9,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Process implements Runnable {
+    private List<BankOperation> operations;
+
+    public List<BankOperation> getOperations() {
+        return operations;
+    }
 
     @Override
     public void run() {
         //System.out.println("Curr dir " + Paths.get(".").toAbsolutePath());
-        List<BankOperation> operationList = loadOperations();
+        operations = loadOperations();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Фильтрация данных");
@@ -22,7 +27,7 @@ public class Process implements Runnable {
         System.out.println("Выберите операцию для фильтрации");
 
         int read = scanner.nextInt();
-        filterAndPrint(operationList, read);
+        filterAndPrint(operations, read);
 
         System.out.println("Выберите алгоритм сортировки");
         System.out.println("1. Сортировка выбором (Selection sort)");
@@ -36,7 +41,7 @@ public class Process implements Runnable {
 
 
         System.out.println("Сортируем");
-        sortAndPrint(operationList, read, type);
+        sortAndPrint(operations, read, type);
     }
 
     public List<BankOperation> loadOperations() {

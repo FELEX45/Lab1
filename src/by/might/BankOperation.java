@@ -18,7 +18,7 @@ public class BankOperation {
     public final String type;
     public final String account;
 
-    public final double amount;
+    private double amount;
     public final String description;
 
     public BankOperation(int date_day, int date_month, int date_year, int time_hour, int time_min, int time_second, String type, String account, double amount, String description) {
@@ -33,6 +33,14 @@ public class BankOperation {
         this.account = account;
         this.amount = amount;
         this.description = description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     @Override
