@@ -22,6 +22,7 @@ public class Sort {
                 if (typeCompare == 0) {
                     return Double.compare(o2.amount, o1.amount);
                 }
+                return typeCompare;
             }
             return accountCompare;
         }
