@@ -15,7 +15,7 @@ public class Process implements Runnable {
         //System.out.println("Curr dir " + Paths.get(".").toAbsolutePath());
         List<BankOperation> operationList = null;
         try {
-            operationList = FileReader.readFromFile("data.txt");
+            operationList = FileReader.readFromFile(Constants.fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
