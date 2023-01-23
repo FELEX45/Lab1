@@ -10,6 +10,6 @@ public class Main {
         System.out.println("Калинин");
         System.out.println("22ПОИТ1з");
 
-        new Process().run();
+        new Process(Constants.fileName).run();
     }
 }
