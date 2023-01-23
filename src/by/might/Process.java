@@ -11,6 +11,10 @@ import java.util.Scanner;
 public class Process implements Runnable {
     private List<BankOperation> operations;
 
+    public Process() {
+        operations = loadOperations();
+    }
+
     public List<BankOperation> getOperations() {
         return operations;
     }
@@ -18,8 +22,6 @@ public class Process implements Runnable {
     @Override
     public void run() {
         //System.out.println("Curr dir " + Paths.get(".").toAbsolutePath());
-        operations = loadOperations();
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Фильтрация данных");
         System.out.println("1. Вывести все банковские приходные операции");
@@ -44,7 +46,7 @@ public class Process implements Runnable {
         sortAndPrint(operations, read, type);
     }
 
-    public List<BankOperation> loadOperations() {
+    private List<BankOperation> loadOperations() {
         try {
             return  FileReader.readFromFile(Constants.fileName);
         } catch (IOException e) {
