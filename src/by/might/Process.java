@@ -14,8 +14,9 @@ public class Process implements Runnable {
     private final Path fileName;
 
     public Process(Path filename) {
-        operations = loadOperations();
         this.fileName = filename;
+        operations = loadOperations();
+
     }
 
     public List<BankOperation> getOperations() {
