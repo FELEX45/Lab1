@@ -9,10 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Process implements Runnable {
-    private List<BankOperation> operations;
+    private final List<BankOperation> operations;
+    private final String fileName;
 
-    public Process() {
+    public Process(String filename) {
         operations = loadOperations();
+        this.fileName = filename;
     }
 
     public List<BankOperation> getOperations() {
@@ -48,7 +50,7 @@ public class Process implements Runnable {
 
     private List<BankOperation> loadOperations() {
         try {
-            return  FileReader.readFromFile(Constants.fileName);
+            return  FileReader.readFromFile(fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
