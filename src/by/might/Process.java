@@ -27,26 +27,35 @@ public class Process implements Runnable {
         System.out.println("Выберите операцию для фильтрации");
 
         int read = scanner.nextInt();
-        if (read == 1) {
-            Filter.sortADDOperation(operationList).forEach(System.out::println);
-        }
-        else if (read == 2) {
-            Filter.sortNov2021(operationList).forEach(System.out::println);
-        }
+        filterAndPrint(operationList, read);
 
         System.out.println("Выберите алгоритм сортировки");
         System.out.println("1. Сортировка выбором (Selection sort)");
         System.out.println("2. Быстрая сортировка (Quick sort)");
         read = scanner.nextInt();
 
-        MagicSort.Algorithm sorting = read == 1 ? MagicSort.Algorithm.SELECTIONSORT : MagicSort.Algorithm.QUICKSORT;
         System.out.println("Выберите Критерии сортировки");
         System.out.println("1. По возрастанию назначения платежа");
         System.out.println("По возрастанию номера счёта, а в рамках одного счёта по возрастанию вида операции, а в рамках одного вида операции по убыванию суммы операции");
-        read = scanner.nextInt();
+        int type = scanner.nextInt();
 
-        Comparator<BankOperation> comparator = read == 1 ? new Sort.BankOperationDescUpComparator() : new Sort.BankOperationAccountComparator();
+
         System.out.println("Сортируем");
+        sortAndPrint(operationList, read, type);
+    }
+
+    public void filterAndPrint(List<BankOperation> operationList, int read) {
+        if (read == 1) {
+            Filter.sortADDOperation(operationList).forEach(System.out::println);
+        }
+        else if (read == 2) {
+            Filter.sortNov2021(operationList).forEach(System.out::println);
+        }
+    }
+
+    public void sortAndPrint(List<BankOperation> operationList, int algo, int type) {
+        MagicSort.Algorithm sorting = algo == 1 ? MagicSort.Algorithm.SELECTIONSORT : MagicSort.Algorithm.QUICKSORT;
+        Comparator<BankOperation> comparator = type == 1 ? new Sort.BankOperationDescUpComparator() : new Sort.BankOperationAccountComparator();
         Arrays.asList(Sort.sortSelect(operationList, comparator, sorting)).forEach(System.out::println);
     }
 }
