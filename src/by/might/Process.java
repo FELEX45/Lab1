@@ -13,12 +13,7 @@ public class Process implements Runnable {
     @Override
     public void run() {
         //System.out.println("Curr dir " + Paths.get(".").toAbsolutePath());
-        List<BankOperation> operationList = null;
-        try {
-            operationList = FileReader.readFromFile(Constants.fileName);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        List<BankOperation> operationList = loadOperations();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Фильтрация данных");
@@ -42,6 +37,14 @@ public class Process implements Runnable {
 
         System.out.println("Сортируем");
         sortAndPrint(operationList, read, type);
+    }
+
+    public List<BankOperation> loadOperations() {
+        try {
+            return  FileReader.readFromFile(Constants.fileName);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void filterAndPrint(List<BankOperation> operationList, int read) {
